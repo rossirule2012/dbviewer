@@ -29,13 +29,15 @@ public class Database {
    }
 
    // Apre la connessione con il Database
-   public boolean connetti() {
+   public boolean connetti(String u,String n,String p) {
       connesso = false;
       try {
-
+		
          // Carico il driver JDBC per la connessione con il database MySQL
          Class.forName("com.mysql.jdbc.Driver");
-
+			pwdUtente=p;
+			nomeUtente=u;
+			nomeDB=n;
          // Controllo che il nome del Database non sia nulla
          if (!nomeDB.equals("")) {
 

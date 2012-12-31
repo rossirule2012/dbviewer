@@ -11,6 +11,7 @@ public class dbviewer extends JFrame
 	String user;
 	String pass;
 	String name;
+	String stmnt="";
 	
 	JButton con = new JButton("Connetti");
 	JButton dis = new JButton("Disconnetti");
@@ -60,7 +61,6 @@ public class dbviewer extends JFrame
 		add(query,br.SOUTH);
 		add(but,br.NORTH);
 		add(shw,br.CENTER);
-		menubar();
 		pack();
 		show();
 		events();
@@ -142,19 +142,7 @@ public Object escisino()  //metodo che definisce una dialog si/no restuisce un O
 			Object obj = pan.getValue(); 
 			return obj;
 		} 
-void menubar() //creo la menubar
-{
-	JMenuBar bar = new JMenuBar();
-	setJMenuBar(bar);
-	JMenu fm = new JMenu("File");
-	JMenu nuo = new JMenu("Nuovo");
-	JMenuItem db = new JMenuItem("Database");
-	JMenuItem tb = new JMenuItem("Tabella");
-	nuo.add(db);
-	nuo.add(tb);
-	fm.add(nuo);
-	bar.add(fm);
-}
+
 void access() //creo la dialog per l'accesso (Commenta questo metodo e inserisci i dati nell'oggetto Database, per un accesso rapido ma poco sicuro
 {
 	JFrame access = new JFrame("Dati d'accesso");
@@ -176,18 +164,18 @@ void access() //creo la dialog per l'accesso (Commenta questo metodo e inserisci
 	}
 }
 	
-void Actionlisteners() //itemlisteners per i menu e la finestra
+void Actionlisteners() //itemlisteners per la finestra
 {
-	//db.addActionListener(new ActionListener());
-	//tb.adActionListener(new ActionListener());
 	
+			
 	this.addWindowListener( new WindowAdapter() {
 		@Override
 		public void windowClosing(WindowEvent we) {
 			System.exit(0);
 		}
 	});
-}			
+}
+
 public static void main(String[] a)
 {
 	new dbviewer();

@@ -74,6 +74,9 @@ public class dbviewer extends JFrame
 		{                                         //la connessione è avvenuta con successo
 				public void actionPerformed(ActionEvent e)
 					{
+						Process p;
+						try{p = Runtime.getRuntime().exec("start mysql");}
+						catch(Exception err){}
 						access();
 						if(!db.connetti(user,name,pass))
 						{lab.setText("Errore di connessione al database");
